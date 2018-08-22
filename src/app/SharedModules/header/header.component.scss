@@ -1,0 +1,11 @@
+.app-header {
+  display: flex;
+  height: 80px;
+  padding: 0 20px;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgb(200, 255, 200);
+  h1{
+    line-height: 60px;
+  }
+}

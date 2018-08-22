@@ -1,0 +1,10 @@
+.app-content{
+  min-height: calc(100vh - 160px);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+table {
+  width: calc(100% - 80px);
+  padding: 0 10px;
+  margin: 20px auto;
+}

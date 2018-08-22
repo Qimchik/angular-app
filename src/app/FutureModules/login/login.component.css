@@ -1,0 +1,15 @@
+.login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  width: 80%;
+  max-width: 350px;
+  height: calc(100vh - 160px);
+}
+
+.app-content{
+  min-height: calc(100vh - 160px);
+  box-sizing: border-box;
+  overflow: hidden;
+}

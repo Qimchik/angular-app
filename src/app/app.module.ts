@@ -9,6 +9,7 @@ import { SharedModule } from './SharedModules/shared.module';
 
 import { LoginComponent } from './FutureModules/login/login.component';
 import { ListComponent } from './FutureModules/list/list.component';
+import { DetailComponent } from './FutureModules/detail/detail.component';
 
 import AuthService from './services/auth/auth.service';
 import ApiService from './services/api/api.service';
@@ -18,7 +19,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   declarations: [
     AppComponent,
     LoginComponent,
-    ListComponent
+    ListComponent,
+    DetailComponent
   ],
   imports: [
     BrowserModule,

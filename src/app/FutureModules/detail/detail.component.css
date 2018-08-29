@@ -1,0 +1,14 @@
+.app-content{
+  max-width: 400px;
+  margin: 0 auto;
+  padding-top: 50px;
+  min-height: calc(100vh - 160px);
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.action-group .btn-primary{
+  margin-right: 20px;
+}

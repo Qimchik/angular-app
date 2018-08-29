@@ -48,6 +48,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     MatInputModule,
     MatFormFieldModule,
     MatToolbarModule,
+    MatFormFieldModule,
+    MatSnackBarModule,
   ],
   exports: [
     CommonModule,
@@ -55,9 +57,11 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     MatCardModule,
     MatInputModule,
     MatFormFieldModule,
+    MatFormFieldModule,
     MatToolbarModule,
     MatTableModule,
     MatListModule,
+    MatSnackBarModule,
   ],
   declarations: []
 })

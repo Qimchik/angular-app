@@ -1,0 +1,31 @@
+<app-header> </app-header>
+
+<main class="app-content" [formGroup]="course">
+
+  <mat-form-field>
+    <input matInput placeholder="Id" formControlName="id" [readonly]="true">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Name" formControlName="name">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Time" formControlName="time">
+  </mat-form-field>
+
+  <mat-form-field>
+    <textarea matInput placeholder="Descrition" formControlName="descrition"></textarea>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Date" formControlName="date">
+  </mat-form-field>
+
+  <div class="action-group">
+      <button class="btn btn-primary" (click)="onSubmit()">Save</button>
+      <button class="btn btn-secondary"(click)="onCancle()">Cancle</button>
+  </div>
+</main>
+
+<app-footer> </app-footer>

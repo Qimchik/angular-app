@@ -3,6 +3,13 @@
   box-sizing: border-box;
   overflow: hidden;
 }
+
+.top-menu {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 40px;
+}
+
 table {
   width: calc(100% - 80px);
   padding: 0 10px;

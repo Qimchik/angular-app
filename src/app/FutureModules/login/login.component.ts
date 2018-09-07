@@ -1,26 +1,34 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
+import { AppState } from '../../app.state';
 import AuthService from '../../services/auth/auth.service';
+import LocalStorageService from '../../services/localstorage/localstorage.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  providers: [ AuthService ]
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   errorMessage: string;
-  constructor(private formBuilder: FormBuilder, private authService: AuthService, private activatedRoute: Router) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private authService: AuthService,
+    private activatedRoute: Router,
+    private localStorageService: LocalStorageService,
+    private store: Store<AppState>
+  ) {
   }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
-      username: '12',
-      password: '',
+      username: '1@mail.com',
+      password: '123',
     });
   }
 
@@ -30,7 +38,8 @@ export class LoginComponent implements OnInit {
     this.authService.login(username.value , password.value).pipe(first())
       .subscribe(
         data => {
-          localStorage.setItem('auth', JSON.stringify(data));
+          this.store.dispatch({ type: 'SIGN_IN' });
+          this.localStorageService.setAuth(data);
           this.activatedRoute.navigate(['courses']);
         },
         error => {

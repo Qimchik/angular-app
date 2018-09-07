@@ -11,7 +11,6 @@ import ApiService from '../../services/api/api.service';
   selector: 'app-detail',
   templateUrl: './detail.component.html',
   styleUrls: ['./detail.component.css'],
-  providers: [ ApiService ]
 })
 export class DetailComponent implements OnInit {
   id: string;
@@ -27,7 +26,7 @@ export class DetailComponent implements OnInit {
 
   ngOnInit() {
     this.course = this.formBuilder.group({
-      id: '' + Math.round(Math.random()*1000),
+      id: '' + Math.round(Math.random() * 1000),
       name: '',
       time: '',
       descrition: '',

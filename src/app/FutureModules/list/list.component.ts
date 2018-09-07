@@ -1,28 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Store, select } from '@ngrx/store';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { MatSnackBar } from '@angular/material';
 import { first } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 import ApiService from '../../services/api/api.service';
-
-export interface dataColumns {
-  name: string;
-  time: string;
-  descrition: string;
-  date: string;
-}
+import { AppState, DataColumns } from '../../app.state';
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.css'],
-  providers: [ ApiService ]
 })
 export class ListComponent implements OnInit {
-  courses: dataColumns[];
+  courses: Observable<DataColumns[]>;
   displayedColumns: string[] = ['name', 'time', 'descrition', 'date', 'actions'];
-  constructor(private apiService: ApiService, private activatedRoute: Router, private snackBar: MatSnackBar) {
+  constructor(
+    private apiService: ApiService,
+    private activatedRoute: Router,
+    private snackBar: MatSnackBar,
+    private store: Store<AppState>) {
+      this.courses = store.pipe(select('courses'));
   }
 
   ngOnInit() {
@@ -33,7 +33,10 @@ export class ListComponent implements OnInit {
     this.apiService.getCourses(search).pipe(first())
       .subscribe(
         data => {
-          this.courses = data;
+          this.store.dispatch({
+            type: 'GET_COURSES_SUCCESS',
+            payload: data,
+          });
         },
         error => {
           if (error.status === 401) {

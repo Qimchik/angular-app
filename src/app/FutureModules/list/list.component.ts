@@ -37,6 +37,7 @@ export class ListComponent implements OnInit {
             type: 'GET_COURSES_SUCCESS',
             payload: data,
           });
+	  this.store.dispatch({ type: 'SIGN_IN' });
         },
         error => {
           if (error.status === 401) {
